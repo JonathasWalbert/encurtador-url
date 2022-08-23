@@ -8,7 +8,7 @@ router.get("/:id", async (req, res) => {
     var url = await ShortURLs.findOne({shortID: req.params.id});
 
     if(url){
-      return res.redirect(url.targetURL);
+      return res.send(url.targetURL);
     } else {
       return res.status(404).json("Sem URL");
     }
