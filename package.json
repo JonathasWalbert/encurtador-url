@@ -10,7 +10,7 @@
     "start": "node src/app.js"
   },
   "engines": {
-    "node": "16.16.0"
+    "node": "16.x"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
