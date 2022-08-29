@@ -1,0 +1,25 @@
+{
+  "name": "encurtador-url",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon run ./src/app.js",
+    "go": "node ./src/app.js",
+    "generate:doc": "jsdoc -r src",
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsdoc": "^3.6.11",
+    "mongoose": "^6.5.2",
+    "shortid": "^2.2.16",
+    "swagger-ui-express": "^4.5.0",
+    "valid-url": "^1.0.9",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

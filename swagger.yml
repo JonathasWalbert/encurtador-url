@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: Encurtador de URL
+  description: API desenvolvida com intuito de encurtar URLs
+    
+  contact:
+    email: jonathaswalbert1998@gmail.om
+  version: 1.0.0
+servers:
+  - url: https://localhost:3000
+paths:
+  /url/shorten:
+    post:
+      tags:
+        - url
+      summary: Add a new url to the store
+      description: Add a url pet to the store
+      operationId: addURL
+      requestBody:
+        description: Create a new url in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/URL'          
+        '405':
+          description: Invalid input
+
+  /:
+    get:
+      tags:
+        - url
+      summary: Finds URL by status
+      description: Buscará todas as URLs salvas no bando de dados
+      operationId: /
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: false
+          explode: true
+          schema:
+            type: string
+            default: available
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/URL'          
+        '400':
+          description: Invalid status value
+
+  /:id:
+    get:
+      tags:
+        - url
+      summary: Finds URL by tags
+      description: Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+      operationId: Finds URL by tags
+      parameters:
+        - name: tags
+          in: query
+          description: Tags to filter by
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/URL'          
+        '400':
+          description: Invalid tag value
+  
