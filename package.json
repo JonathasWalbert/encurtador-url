@@ -10,6 +10,7 @@
     "start": "node src/app.js"
   },
   "dependencies": {
+    "node": "^16.16.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jsdoc": "^3.6.11",
